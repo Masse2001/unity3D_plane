@@ -4,36 +4,31 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-    public TextMeshProUGUI buttonText; // Assurez-vous de lier ce composant dans l'éditeur Unity
+    public TextMeshProUGUI buttonText;
 
-    // Cette méthode doit être appelée lorsque le bouton Play est cliqué.
     public void LoadFlightDemoScene()
     {
-        SceneManager.LoadScene("Flight Demo"); 
+        // Utilisez le GameManager.Instance pour charger la scène et conserver les données du jeu
+        GameManager.Instance.LoadFlightDemoScene();
     }
 
-    // Cette méthode change le texte du bouton
     public void ToggleCockpitText()
     {
         if (buttonText != null)
         {
-            if (buttonText.text == "Cockpit Activé")
-            {
-                buttonText.text = "Cockpit Désactivé";
-            }
-            else
-            {
-                buttonText.text = "Cockpit Activé";
-            }
+            // Utilisez le GameManager.Instance pour gérer l'état du cockpit
+            GameManager.Instance.ToggleCockpit();
+            buttonText.text = GameManager.Instance.IsCockpitActivated() ? "Cockpit Activé" : "Cockpit Désactivé";
         }
         else
         {
             Debug.LogError("Le composant TextMeshProUGUI n'est pas assigné dans l'éditeur Unity.");
         }
     }
+
     public void QuitApplication()
     {
         Application.Quit();
-        Debug.Log("Application fermée"); // Cette ligne est pour le débogage dans l'éditeur Unity
+        Debug.Log("Application fermée");
     }
 }

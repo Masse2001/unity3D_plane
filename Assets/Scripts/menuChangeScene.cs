@@ -1,16 +1,15 @@
+// menuChangeScene.cs
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class menuChangeScene : MonoBehaviour
 {
-
     void Update()
     {
-        // Vérifiez si la touche "Échap" est enfoncée.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("menu"); 
+            // Rechargez la scène précédente sans réinitialiser le GameManager
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1, LoadSceneMode.Single);
         }
     }
 }
