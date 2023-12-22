@@ -4,6 +4,7 @@
 //
 
 using UnityEngine;
+using Cinemachine;
 
 namespace MFlight.Demo
 {
@@ -34,6 +35,7 @@ namespace MFlight.Demo
         [SerializeField] [Range(-1f, 1f)] private float yaw = 0f;
         [SerializeField] [Range(-1f, 1f)] private float roll = 0f;
 
+
         public float Pitch { set { pitch = Mathf.Clamp(value, -1f, 1f); } get { return pitch; } }
         public float Yaw { set { yaw = Mathf.Clamp(value, -1f, 1f); } get { return yaw; } }
         public float Roll { set { roll = Mathf.Clamp(value, -1f, 1f); } get { return roll; } }
@@ -42,6 +44,7 @@ namespace MFlight.Demo
 
         private bool rollOverride = false;
         private bool pitchOverride = false;
+
 
         private void Awake()
         {
@@ -52,7 +55,7 @@ namespace MFlight.Demo
         }
 
         private void Update()
-        {
+        {   
             // When the player commands their own stick input, it should override what the
             // autopilot is trying to do.
             rollOverride = false;
@@ -139,5 +142,6 @@ namespace MFlight.Demo
                                                 -turnTorque.z * roll) * forceMult,
                                     ForceMode.Force);
         }
+
     }
 }
