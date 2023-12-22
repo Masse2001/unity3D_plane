@@ -8,7 +8,7 @@ public class ForestGenerator : MonoBehaviour
 {
     public GameObject[] TreePrefabs;
     public float perlinScale = 0.1f;
-    public float treeDensity = 0.5f;
+    public float treeDensity = 0.25f;
     public float minDistanceBetweenTrees = 2.0f;
 
     void Start()
