@@ -8,7 +8,7 @@ public class ForestGenerator : MonoBehaviour
 {
     public GameObject[] TreePrefabs;
     public float perlinScale = 0.1f;
-    public float treeDensity = 0.25f;
+    public float treeDensity = 0.5f;
     public float minDistanceBetweenTrees = 2.0f;
 
     void Start()
@@ -23,7 +23,7 @@ public class ForestGenerator : MonoBehaviour
 
         if (meshFilter == null || meshFilter.sharedMesh == null)
         {
-            Debug.LogError("No MeshFilter or Mesh found. Make sure your object has a MeshFilter component with a valid mesh.");
+            Debug.LogError("No MeshFilter or Mesh found.");
             return;
         }
 
