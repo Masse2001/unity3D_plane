@@ -39,7 +39,7 @@ public class ForestGenerator : MonoBehaviour
 
             Vector3 treePosition = transform.TransformPoint(vertices[v]);
 
-            // Vérifiez la distance minimale par rapport aux arbres déjà instanciés
+            // Vérification de la distance minimale par rapport aux arbres déjà instanciés
             bool canInstantiate = true;
             foreach (Vector3 existingTreePos in treePositions)
             {
@@ -52,7 +52,7 @@ public class ForestGenerator : MonoBehaviour
 
             if (canInstantiate && Random.value < treeDensity)
             {
-                // Instancier un arbre seulement si la distance minimale est respectée et si un nombre aléatoire est inférieur à la densité souhaitée
+                // Instanciation d'un arbre seulement si la distance minimale est respectée et si un nombre aléatoire est inférieur à la densité souhaitée
                 Instantiate(TreePrefabs[(int)perlinValue], treePosition, Quaternion.identity);
                 treePositions.Add(treePosition);
             }

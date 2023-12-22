@@ -62,4 +62,14 @@ sysinfo.txt
 crashlytics-build.properties
 
 UserSettings/Layouts/default-2022.dwlt
+<<<<<<< Updated upstream
 Assets/TextMesh Pro.meta
+=======
+Assets/_Scenes/Flight Demo.unity
+UserSettings/Layouts/default-2022.dwlt
+>>>>>>> Stashed changes
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+UserSettings/Layouts/default-2022.dwlt
+*.dwlt
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt

@@ -9,12 +9,17 @@ public class progressiveForest : MonoBehaviour
     public float perlinScale = 0.1f;
     public float treeDensity = 0.25f;
     public float minDistanceBetweenTrees = 2.0f;
+
+    
+
     public int treesPerFrame = 20; // Nombre d'arbres à générer par frame
 
     private Perlin surface;
     private MeshFilter meshFilter;
     private List<Vector3> treePositions = new List<Vector3>();
     private bool generationComplete = false;
+
+    public bool endWithCollision = false;
 
     void Start()
     {
@@ -37,7 +42,7 @@ public class progressiveForest : MonoBehaviour
 
                 Vector3 treePosition = transform.TransformPoint(vertices[v + i]);
 
-                // Vérifiez la distance minimale par rapport aux arbres déjà instanciés
+                // Vérification de la distance minimale par rapport aux arbres déjà instanciés
                 bool canInstantiate = true;
                 foreach (Vector3 existingTreePos in treePositions)
                 {
@@ -64,11 +69,26 @@ public class progressiveForest : MonoBehaviour
 
     void Update()
     {
-        // Exemple de condition pour détecter la fin de la génération
+        //ondition pour détecter la fin de la génération
         if (generationComplete)
         {
-            // Faire quelque chose lorsque la génération est terminée
+            //lorsque la génération est terminée
             Debug.Log("Generation Complete!");
         }
+    }
+
+    //
+    void OnCollisionEnter(Collision collision)
+    {
+        if(endWithCollision){
+            if (collision.gameObject.CompareTag("plane")) // Assurez-vous de définir un tag pour votre avion dans l'éditeur Unity
+            {
+                // Arrêtez le jeu
+                Time.timeScale = 0f;
+                Debug.Log("Game Over! Plane collided with the ground.");
+                Application.Quit();
+            }
+        }
+        
     }
 }
