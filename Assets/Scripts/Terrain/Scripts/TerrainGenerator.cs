@@ -17,6 +17,11 @@ public class TerrainGenerator : MonoBehaviour {
     public int numErosionIterations = 50000;
     public int erosionBrushRadius = 3;
 
+    [Header("Forest Settings")]
+    public GameObject[] treePrefabs;
+    public float forestScale = 20f;
+
+
     public int maxLifetime = 30;
     public float sedimentCapacityFactor = 3;
     public float minSedimentCapacity = .01f;
@@ -37,6 +42,8 @@ public class TerrainGenerator : MonoBehaviour {
 
     MeshRenderer meshRenderer;
     MeshFilter meshFilter;
+
+
 
 
     public void Simplify () {
