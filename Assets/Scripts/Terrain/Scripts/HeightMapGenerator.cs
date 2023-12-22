@@ -13,6 +13,7 @@ public class HeightMapGenerator : MonoBehaviour {
     public bool useComputeShader = true;
     public ComputeShader heightMapComputeShader;
 
+    
     public float[] GenerateHeightMap (int mapSize) {
         if (useComputeShader) {
             return GenerateHeightMapGPU (mapSize);
@@ -68,6 +69,8 @@ public class HeightMapGenerator : MonoBehaviour {
 
         return map;
     }
+
+
 
     float[] GenerateHeightMapCPU (int mapSize) {
         var map = new float[mapSize * mapSize];
